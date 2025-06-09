@@ -1,10 +1,35 @@
 import { useState } from "react";
 import Countdown from "./components/Countdown";
 import Modal from "./components/Modal";
+import Carousel from "./components/Carousel";
+import Tabs from "./components/Tabs";
+import Dropdown from "./components/Dropdown";
+import Tooltip from "./components/Tooltip";
+import Accordion from "./components/Accordion";
+import Toast from "./components/Toast";
+import ProgressBar from "./components/ProgressBar";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [countdown, setCountdown] = useState(10);
+  const [toastMsg, setToastMsg] = useState("");
+  const [progress, setProgress] = useState(30);
+  const tabs = [
+    { label: "标签一", content: <div>内容一</div> },
+    { label: "标签二", content: <div>内容二</div> },
+    { label: "标签三", content: <div>内容三</div> },
+  ];
+  const [dropdownValue, setDropdownValue] = useState();
+  const dropdownOptions = [
+    { label: "选项一", value: 1 },
+    { label: "选项二", value: 2 },
+    { label: "选项三", value: 3 },
+  ];
+  const accordionItems = [
+    { title: "面板一", content: <div>内容一</div> },
+    { title: "面板二", content: <div>内容二</div> },
+    { title: "面板三", content: <div>内容三</div> },
+  ];
   return (
     <div>
       <h1>倒计时组件示例</h1>
@@ -22,6 +47,41 @@ function App() {
       <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
         <div>这是一个模态框内容</div>
       </Modal>
+      <hr />
+      <h1>轮播图组件示例</h1>
+      <Carousel />
+      <hr />
+      <h1>Tabs 组件</h1>
+      <Tabs tabs={tabs} />
+      <hr />
+      <h1>下拉菜单 Dropdown 组件示例</h1>
+      <Dropdown
+        options={dropdownOptions}
+        value={dropdownValue}
+        onChange={setDropdownValue}
+      />
+      <div style={{ marginTop: 8 }}>当前选择：{dropdownValue || "无"}</div>
+      <hr />
+      <h1>Tooltip 组件示例</h1>
+      <Tooltip text="这是气泡提示">把鼠标移到我上面</Tooltip>
+      <hr />
+      <h1>Accordion 手风琴组件示例</h1>
+      <Accordion items={accordionItems} />
+      <hr />
+      <h1>Toast 消息提示组件示例</h1>
+      <button onClick={() => setToastMsg("操作成功！")}>显示 Toast</button>
+      <Toast message={toastMsg} onClose={() => setToastMsg("")} />
+      <hr />
+      <h1>ProgressBar 进度条组件示例</h1>
+      <input
+        type="range"
+        min={0}
+        max={100}
+        value={progress}
+        onChange={(e) => setProgress(Number(e.target.value))}
+      />
+      <ProgressBar value={progress} max={100} />
+      <hr />
     </div>
   );
 }
