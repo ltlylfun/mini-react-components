@@ -11,3 +11,5 @@
 - [Accordion 手风琴](./src/components/Accordion.jsx)
 - [Toast 消息提示](./src/components/Toast.jsx)
 - [ProgressBar 进度条](./src/components/ProgressBar.jsx)
+- [CheckboxGroup 复选框组](./src/components/CheckboxGroup.jsx)
+- [Counter 计数器](./src/components/Counter.jsx)

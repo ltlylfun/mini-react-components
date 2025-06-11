@@ -8,12 +8,15 @@ import Tooltip from "./components/Tooltip";
 import Accordion from "./components/Accordion";
 import Toast from "./components/Toast";
 import ProgressBar from "./components/ProgressBar";
+import CheckboxGroup from "./components/CheckboxGroup";
+import Counter from "./components/Counter";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [countdown, setCountdown] = useState(10);
   const [toastMsg, setToastMsg] = useState("");
   const [progress, setProgress] = useState(30);
+  const [checkedValues, setCheckedValues] = useState([]);
   const tabs = [
     { label: "标签一", content: <div>内容一</div> },
     { label: "标签二", content: <div>内容二</div> },
@@ -30,9 +33,14 @@ function App() {
     { title: "面板二", content: <div>内容二</div> },
     { title: "面板三", content: <div>内容三</div> },
   ];
+  const checkboxOptions = [
+    { label: "选项A", value: "A" },
+    { label: "选项B", value: "B" },
+    { label: "选项C", value: "C" },
+  ];
   return (
     <div>
-      <h1>倒计时组件示例</h1>
+      <h1>Countdown 倒计时组件示例</h1>
       <input
         type="number"
         value={countdown}
@@ -42,19 +50,19 @@ function App() {
       />
       <Countdown seconds={countdown} />
       <hr />
-      <h1>模态框组件示例</h1>
+      <h1>Modal 模态框组件示例</h1>
       <button onClick={() => setModalOpen(true)}>打开模态框</button>
       <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
         <div>这是一个模态框内容</div>
       </Modal>
       <hr />
-      <h1>轮播图组件示例</h1>
+      <h1>Carousel 轮播图组件示例</h1>
       <Carousel />
       <hr />
-      <h1>Tabs 组件</h1>
+      <h1>Tabs 标签页组件示例</h1>
       <Tabs tabs={tabs} />
       <hr />
-      <h1>下拉菜单 Dropdown 组件示例</h1>
+      <h1>Dropdown 下拉菜单组件示例</h1>
       <Dropdown
         options={dropdownOptions}
         value={dropdownValue}
@@ -62,7 +70,7 @@ function App() {
       />
       <div style={{ marginTop: 8 }}>当前选择：{dropdownValue || "无"}</div>
       <hr />
-      <h1>Tooltip 组件示例</h1>
+      <h1>Tooltip 气泡提示组件示例</h1>
       <Tooltip text="这是气泡提示">把鼠标移到我上面</Tooltip>
       <hr />
       <h1>Accordion 手风琴组件示例</h1>
@@ -81,6 +89,17 @@ function App() {
         onChange={(e) => setProgress(Number(e.target.value))}
       />
       <ProgressBar value={progress} max={100} />
+      <hr />
+      <h1>CheckboxGroup 复选框组组件示例</h1>
+      <CheckboxGroup
+        options={checkboxOptions}
+        value={checkedValues}
+        onChange={setCheckedValues}
+      />
+      <div>已选：{checkedValues.join(",") || "无"}</div>
+      <hr />
+      <h1>Counter 计数器组件示例</h1>
+      <Counter initial={0} />
       <hr />
     </div>
   );
