@@ -1,4 +1,14 @@
-# react 组件的最简单实现，甚至没有 css 样式，适合 react 初学者
+<div align="center">
+  <img src="public/logo.png" alt="项目图标" width="200" />
+</div>
+
+# mini-react-components
+
+> 本组件库是学习目的，所以设计比较简单，适合初学者
+
+## 在线预览
+
+[https://ltlylfun.github.io/mini-react-components/](https://ltlylfun.github.io/mini-react-components/)
 
 ## 组件目录
 

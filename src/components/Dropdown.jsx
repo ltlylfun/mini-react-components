@@ -22,7 +22,7 @@ function Dropdown({ options = [], value, onChange, placeholder = "请选择" }) 
 
   return (
     <div ref={ref}>
-      <div onClick={() => setOpen((v) => !v)}>
+      <div onClick={() => setOpen((v) => !v)} style={{ cursor: "pointer" }}>
         {value ? options.find((o) => o.value === value)?.label : placeholder}
         <span>▼</span>
       </div>
@@ -35,6 +35,7 @@ function Dropdown({ options = [], value, onChange, placeholder = "请选择" }) 
                 onChange(option.value);
                 setOpen(false);
               }}
+              style={{ cursor: "pointer" }}
             >
               {option.label}
             </div>

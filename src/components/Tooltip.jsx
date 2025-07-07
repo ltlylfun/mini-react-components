@@ -6,6 +6,7 @@ function Tooltip({ children, text }) {
     <span
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
+      style={{ cursor: "pointer" }}
     >
       {children}
       {visible && <span>{text}</span>}

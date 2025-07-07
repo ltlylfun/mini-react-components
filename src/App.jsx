@@ -39,7 +39,14 @@ function App() {
     { label: "选项C", value: "C" },
   ];
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <h1>Countdown 倒计时组件示例</h1>
       <input
         type="number"
@@ -49,19 +56,19 @@ function App() {
         style={{ width: 60 }}
       />
       <Countdown seconds={countdown} />
-      <hr />
+      <hr style={{ width: "100%" }} />
       <h1>Modal 模态框组件示例</h1>
       <button onClick={() => setModalOpen(true)}>打开模态框</button>
       <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
         <div>这是一个模态框内容</div>
       </Modal>
-      <hr />
+      <hr style={{ width: "100%" }} />
       <h1>Carousel 轮播图组件示例</h1>
       <Carousel />
-      <hr />
+      <hr style={{ width: "100%" }} />
       <h1>Tabs 标签页组件示例</h1>
       <Tabs tabs={tabs} />
-      <hr />
+      <hr style={{ width: "100%" }} />
       <h1>Dropdown 下拉菜单组件示例</h1>
       <Dropdown
         options={dropdownOptions}
@@ -69,17 +76,17 @@ function App() {
         onChange={setDropdownValue}
       />
       <div style={{ marginTop: 8 }}>当前选择：{dropdownValue || "无"}</div>
-      <hr />
+      <hr style={{ width: "100%" }} />
       <h1>Tooltip 气泡提示组件示例</h1>
       <Tooltip text="这是气泡提示">把鼠标移到我上面</Tooltip>
-      <hr />
+      <hr style={{ width: "100%" }} />
       <h1>Accordion 手风琴组件示例</h1>
       <Accordion items={accordionItems} />
-      <hr />
+      <hr style={{ width: "100%" }} />
       <h1>Toast 消息提示组件示例</h1>
       <button onClick={() => setToastMsg("操作成功！")}>显示 Toast</button>
       <Toast message={toastMsg} onClose={() => setToastMsg("")} />
-      <hr />
+      <hr style={{ width: "100%" }} />
       <h1>ProgressBar 进度条组件示例</h1>
       <input
         type="range"
@@ -89,18 +96,18 @@ function App() {
         onChange={(e) => setProgress(Number(e.target.value))}
       />
       <ProgressBar value={progress} max={100} />
-      <hr />
+      <hr style={{ width: "100%" }} />
       <h1>CheckboxGroup 复选框组组件示例</h1>
       <CheckboxGroup
         options={checkboxOptions}
         value={checkedValues}
         onChange={setCheckedValues}
       />
-      <div>已选：{checkedValues.join(",") || "无"}</div>
-      <hr />
+      <div>已选：{[...checkedValues].sort().join(",") || "无"}</div>
+      <hr style={{ width: "100%" }} />
       <h1>Counter 计数器组件示例</h1>
       <Counter initial={0} />
-      <hr />
+      <hr style={{ width: "100%" }} />
     </div>
   );
 }
